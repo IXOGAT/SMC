@@ -1,4 +1,4 @@
-	/*  All code originally written by Alex Mononen
+/*  All code originally written by Alex Mononen
 	CS 50
 	6/27/2017
 */
@@ -7,11 +7,12 @@
 #include <math.h>;
 int main(void) 
 {
-	int i = 14;
+	int i = 10;
 	// line counts what line of the pyramid the program is on
-	int line = 1;
+	int lineTop = 1;
+	int lineBot = 5;
 	int tmp;
-	for (line; line < 7; line++)
+	for (lineTop; lineTop < 7; lineTop++)
 	{
 		tmp = i;
 		for (i; i > 0; i--)
@@ -19,11 +20,25 @@ int main(void)
 			printf(" ");
 		}
 		i = tmp - 2;
-		int powup = multup(line);
-		int powdwn = multdwn(line, powup);
+		int powup = multup(lineTop);
+		int powdwn = multdwn(lineTop, powup);
+		printf("\n");
+	}
+	i = 2;
+	for (lineBot; lineBot > 0; lineBot--)
+	{
+		tmp = i;
+		for (i; i > 0; i--)
+		{
+			printf(" ");
+		}
+		i = tmp + 2;
+		int powup = multup(lineBot);
+		int powdwn = multdwn(lineBot, powup);
 		printf("\n");
 	}
 	getchar();
+	return 0;
 }
 int multup(int amount) 
 {
