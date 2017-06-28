@@ -7,29 +7,30 @@
 #include <math.h>;
 int main(void) 
 {
-	int i = 6;
-	int count = 1;
-	for (i; i > 0; i--)
+	int i = 22;
+	// line counts what line of the pyramid the program is on
+	int line = 1;
+	int tmp;
+	for (line; line < 12; line++)
 	{
-		for(int n = i; n > 0; n--)
+		tmp = i;
+		for (i; i > 0; i--)
 		{
 			printf(" ");
-			for (n; n > 0; n--)
-			{
-				printf("%d", count);
-				printf(" ");
-				count = count * 3;
-			}
-			printf(" ");
-			printf("\n");
-			count = 1;
 		}
-
-		/*
-		printf("%d", count);
-		count = count * 3;
+		i = tmp - 2;
+		printf("%d", line);
 		printf("\n");
-		*/
 	}
 	getchar();
+}
+int xxx(int amount) 
+{
+	int counter = amount;
+	int value = 1;
+	for (int i = 0; i < counter; i++)
+	{
+		value = value * 3;
+	}
+	return value;
 }
