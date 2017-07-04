@@ -5,6 +5,7 @@
 
 #include <stdio.h>;
 #include <math.h>;
+void power3(int amount);
 int main(void)
 {
 	int i = 10;
@@ -20,7 +21,7 @@ int main(void)
 			printf(" ");
 		}
 		i = tmp - 2;
-		int powup = multup(lineTop);
+		power3(lineTop);
 		printf("\n");
 	}
 	i = 2;
@@ -32,13 +33,13 @@ int main(void)
 			printf(" ");
 		}
 		i = tmp + 2;
-		int powup = multup(lineBot);
+		power3(lineBot);
 		printf("\n");
 	}
 	getchar();
 	return 0;
 }
-int multup(int amount)
+void power3(int amount)
 {
 	int value = 1;
 	//counting up
@@ -59,5 +60,5 @@ int multup(int amount)
 			printf(" ");
 		}
 	}
-	return value;	
+	//return value;	
 }

@@ -4,7 +4,6 @@ CS 50
 */
 
 #include <stdio.h>;
-#include <math.h>;
 #include <stdbool.h>;
 int main(void)
 {
@@ -25,7 +24,7 @@ int main(void)
 		{
 			//invalid value
 			//lowercase to help identify
-			printf("try again!");
+			printf("try again!\n");
 			i = i - 1;
 		}
 		else
