@@ -5,7 +5,7 @@
 
 #include <stdio.h>;
 #include <math.h>;
-int main(void) 
+int main(void)
 {
 	int i = 10;
 	// line counts what line of the pyramid the program is on
@@ -21,7 +21,6 @@ int main(void)
 		}
 		i = tmp - 2;
 		int powup = multup(lineTop);
-		int powdwn = multdwn(lineTop, powup);
 		printf("\n");
 	}
 	i = 2;
@@ -34,28 +33,24 @@ int main(void)
 		}
 		i = tmp + 2;
 		int powup = multup(lineBot);
-		int powdwn = multdwn(lineBot, powup);
 		printf("\n");
 	}
 	getchar();
 	return 0;
 }
-int multup(int amount) 
+int multup(int amount)
 {
 	int value = 1;
+	//counting up
 	for (int i = 0; i < amount; i++)
 	{
 		printf("%d", value);
 		value = value * 3;
 		printf(" ");
 	}
-	return value;
-}
-int multdwn(int amount, int current)
-{
-	int value = current;
+	//counting down
 	value = value / 3;
-	for (int i = 0; i < amount; i++)
+	for (int n = 0; n < amount; n++)
 	{
 		if (value > 1)
 		{
@@ -64,5 +59,5 @@ int multdwn(int amount, int current)
 			printf(" ");
 		}
 	}
-	return value;
+	return value;	
 }
