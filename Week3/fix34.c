@@ -6,28 +6,75 @@
 #include <stdio.h>;
 #include <stdbool.h>;
 #include <math.h>;
-void fix34(int array[]);
+int fix34(int input[]);
+void printArray(int original[], int fixed[]);
 int main(void)
 {
 	int array[9] = { 1, 3, 8, 5, 4, 3, 6, 4, 5 };
-	fix34(array[9]);
+	//int sorted[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	int sorted = fix34(array);
+	printArray(array, sorted);
 	getchar();
 }
 
-void fix34(int array[])
+int fix34(int input[])
 {
 	//int tmp[9] = array;
-	int array3[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	for (int i = 0; i < 10; i++)
+	int input3[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	int non3[3] = { 0, 0, 0 };
+	int i = 0;
+	for (i; i <= 9; i++)
 	{
-		if (array[i] == 3)
+		if (input[i] == 3)
 		{
-			array3[i] = 3;
+			input3[i] = 3;
+			input3[i + 1] = 4;
+			input3[i + 2] = 5;
 		}
 	}
+	int n = 0;
+	for (int j = 0; j <= 9; j++)
+	{
+		if (input[j] != 3)
+		{
+			if (input[j] != 4)
+			{
+				if (input[j] != 5)
+				{
+					non3[n] = input[j];
+					n++;
+				}
+			}
+		}
+	}
+	n = 0;
+	for (int j = 0; j <= 9; j++)
+	{
+		if (input3[j] == 0)
+		{
+			input3[j] = non3[n];
+			n++;
+		}
+	}
+	static int result[9];
+	for (int j = 0; j <= 9; j++)
+	{
+		result[j] = input3[j];
+	}
+	return result;
 }
 
-int printArray(int array[])
+void printArray(int original[], int fixed[])
 {
-
+	printf("fix34({");
+	for (int i = 0; i <= 8; i++)
+	{
+		printf("%d, ", original[i]);
+	}
+	printf("}) => {");
+	for (int i = 0; i <= 8; i++)
+	{
+		printf("%d, ", fixed[i]);
+	}
+	printf("}");
 }
