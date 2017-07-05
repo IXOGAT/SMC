@@ -1,6 +1,6 @@
 /*  All code originally written by Alex Mononen
-	CS 50
-	6/27/2017
+CS 50
+6/27/2017
 */
 
 #include <stdio.h>;
@@ -9,7 +9,7 @@
 /*Structure of 9 int to use to return the damn function thingy*/
 typedef struct
 {
-	int a, b, c, d, e, f, g, h, i;
+	int myArray[9];
 }Values;
 //int fix34(int input[]);
 void printArray(int input[]);
@@ -18,7 +18,7 @@ int main(void)
 	int array[9] = { 1, 3, 8, 5, 4, 3, 6, 4, 5 };
 	printArray(array);
 	getchar();
-	
+
 }
 
 Values fix34(int input[])
@@ -60,22 +60,16 @@ Values fix34(int input[])
 			n++;
 		}
 	}
-	result.a = input3[0];
-	result.b = input3[1];
-	result.c = input3[2];
-	result.d = input3[3];
-	result.e = input3[4];
-	result.f = input3[5];
-	result.g = input3[6];
-	result.h = input3[7];
-	result.i = input3[8];
+	for (char j = 0; j <= 9; j++)
+	{
+		result.myArray[j] = input[j];
+	}
 	return result;
 }
 
 void printArray(int input[])
 {
 	Values result = fix34(input);
-	int dump[9] = { result.a, result.b, result.c, result.d, result.e, result.f, result.g, result.h, result.i };
 	printf("fix34({");
 	for (int i = 0; i <= 8; i++)
 	{
@@ -84,7 +78,7 @@ void printArray(int input[])
 	printf("}) => {");
 	for (int i = 0; i <= 8; i++)
 	{
-		printf("%d, ", dump[i]);
+		printf("%d, ", result.myArray[i]);
 	}
 	printf("}");
 }
