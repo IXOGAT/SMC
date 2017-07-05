@@ -39,16 +39,10 @@ Values fix34(int input[])
 	int n = 0;
 	for (int j = 0; j <= 9; j++)
 	{
-		if (input[j] != 3)
+		if ((input[j] != 3) && (input[j] != 4) && (input[j] != 5))
 		{
-			if (input[j] != 4)
-			{
-				if (input[j] != 5)
-				{
-					non3[n] = input[j];
-					n++;
-				}
-			}
+			non3[n] = input[j];
+			n++;
 		}
 	}
 	n = 0;
