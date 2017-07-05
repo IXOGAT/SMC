@@ -34,6 +34,7 @@ int main(void)
 	{
 		official[length] = input[length];
 	}
+	free(official);
 	printArray(input);
 	getchar();
 }
