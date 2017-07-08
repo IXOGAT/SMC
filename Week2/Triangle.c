@@ -6,14 +6,26 @@
 #include <stdio.h>;
 #include <math.h>;
 void power3(int amount);
+int topCount;
+int botCount;
+int midSector;
+int i;
 int main(void)
 {
-	int i = 10;
+	i = 2;
+	while (i % 2 != 1)
+	{
+		printf("Enter in the amount of lines that you want to print, the amount needs to be odd, otherwise the program won't work properly.");
+		scanf_s("%d", &i);
+	}
 	// line counts what line of the pyramid the program is on
-	int lineTop = 1;
-	int lineBot = 5;
+//	int lineTop = 1; /*replaced by topCount*/
+//	int lineBot = 5; /*replaced by botCount*/
+	topCount = 1;
+	botCount = i / 2;
+	midSector = botCount + 1;
 	int tmp;
-	for (lineTop; lineTop < 7; lineTop++)
+	for (topCount; topCount <= midSector; topCount++)
 	{
 		tmp = i;
 		for (i; i > 0; i--)
@@ -21,11 +33,11 @@ int main(void)
 			printf(" ");
 		}
 		i = tmp - 2;
-		power3(lineTop);
+		power3(topCount);
 		printf("\n");
 	}
 	i = 2;
-	for (lineBot; lineBot > 0; lineBot--)
+	for (botCount; botCount > 0; botCount--)
 	{
 		tmp = i;
 		for (i; i > 0; i--)
@@ -33,9 +45,10 @@ int main(void)
 			printf(" ");
 		}
 		i = tmp + 2;
-		power3(lineBot);
+		power3(botCount);
 		printf("\n");
 	}
+	getchar();
 	getchar();
 	return 0;
 }

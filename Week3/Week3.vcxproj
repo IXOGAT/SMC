@@ -112,7 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fix34_v2.c" />
+    <ClCompile Include="fix34.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

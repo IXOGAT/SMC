@@ -17,4 +17,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="guess.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="math.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

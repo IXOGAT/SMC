@@ -1,33 +1,61 @@
 /*  All code originally written by Alex Mononen
-CS 50
-6/27/2017
+	CS 50
+	6/27/2017
 */
 
 #include <stdio.h>;
-#include <stdbool.h>;
-#include <math.h>;
-/*Structure of 9 int to use to return the damn function thingy*/
-typedef struct
-{
-	int myArray[9];
-}Values;
-//int fix34(int input[]);
+#include <stdlib.h>;
+int * fix34(int input[]);
 void printArray(int input[]);
+int amount;
 int main(void)
 {
-	int array[9] = { 1, 3, 8, 5, 4, 3, 6, 4, 5 };
-	printArray(array);
-	getchar();
+	/*Large arrays are only being generated to prevent overflow*/
+	int input[25];
+	char temp[8];
+	printf("Enter the values of the array, pressing enter after each one, and type done when all values are inputted:");
+	for (amount = 1; amount > 0; amount++) 
+	{
+		printf("\nEnter value %d:", amount);
+		gets(temp);
+		/*atoi is part of the stdlib.h library, it reads the full length of an array*/
+		int tempint = atoi(temp);
+		if ((temp[0] == 'd') || (temp[0] == ' ')) 
+		{
+			break;
+		}
+		else
+		{
+			input[amount - 1] = tempint;
+		}
+	}
+	int length = amount - 1;
+	int *official;
+	official = malloc(sizeof(int) * length);
+	for (length; length >= 0; length--)
+	{
+		official[length] = input[length];
+	}
+	free(official);
 
+	printArray(input);
+	getchar();
+	return 0;
 }
 
-Values fix34(int input[])
+int * fix34(int input[])
 {
-	Values result;	/*Declare 'result' of type 'Values'*/
-	int input3[9] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	int non3[3] = { 0, 0, 0 };
+	int length = amount - 1;
+	static int input3[30];
+	int non3[50];
+	int inputclr[50];
+	/*copying input from fake array to real array*/
+	for (int i = 0; i <= length; i++)
+	{
+		inputclr[i] = input[i];
+	}
 	int i = 0;
-	for (i; i <= 9; i++)
+	for (i; i <= length; i++)
 	{
 		if (input[i] == 3)
 		{
@@ -37,16 +65,16 @@ Values fix34(int input[])
 		}
 	}
 	int n = 0;
-	for (int j = 0; j <= 9; j++)
+	for (int j = 0; j <= length; j++)
 	{
-		if ((input[j] != 3) && (input[j] != 4) && (input[j] != 5))
+		if ((inputclr[j] != 3) && (inputclr[j] != 4) && (inputclr[j] != 5))
 		{
-			non3[n] = input[j];
+			non3[n] = inputclr[j];
 			n++;
 		}
 	}
 	n = 0;
-	for (int j = 0; j <= 9; j++)
+	for (int j = 0; j <= length; j++)
 	{
 		if (input3[j] == 0)
 		{
@@ -54,25 +82,23 @@ Values fix34(int input[])
 			n++;
 		}
 	}
-	for (char j = 0; j <= 9; j++)
-	{
-		result.myArray[j] = input[j];
-	}
-	return result;
+	return input3;
 }
 
 void printArray(int input[])
 {
-	Values result = fix34(input);
+	int length = amount - 2;
+	int *result;
+	result = fix34(input);
 	printf("fix34({");
-	for (int i = 0; i <= 8; i++)
+	for (int i = 0; i <= length ; i++)
 	{
 		printf("%d, ", input[i]);
 	}
 	printf("}) => {");
-	for (int i = 0; i <= 8; i++)
+	for (int i = 0; i <= length; i++)
 	{
-		printf("%d, ", result.myArray[i]);
+		printf("%d, ", result[i]);
 	}
 	printf("}");
 }

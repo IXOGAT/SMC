@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fix34_v2.c">
+    <ClCompile Include="fix34.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
