@@ -1,25 +1,63 @@
+/*  All code originally written by Alex Mononen
+CS 50
+6/27/2017
+*/
 #include <stdio.h>
-#include <stdlib.h>
+#define BUFF_SIZE 512
 
 int main(void)
 {
-	printf("Input a string: ");
-	char input[50];
-	scanf_s("%s", input);
+	char inarray[BUFF_SIZE];
+	char *inptr;
+	printf("INPUT A STRING \n> ");
+	inptr = fgets(inarray, BUFF_SIZE, stdin);
 	int ptr = 0;
-	char duplicates[40];
-	for (int i = 0; i <= 52; i++)
+	char duplicates[BUFF_SIZE];
+	char print;
+	int n = 0;
+	int len = strlen(inptr) - 1;
+
+	for (char i = 65; i <= 123; i++)
 	{
-		for (int n = i; n <= 52; n++)
+		while (n < len)
 		{
-			if (input[i] == input[n])
+			if (inptr[n] == i)
 			{
-				duplicates[ptr] = input[i];
-				ptr++;
+
 			}
 		}
 	}
-	printf("%s", duplicates);
+
+	for (int i = 0; i < len; i++)
+	{
+		n = i;
+		while (n < len)
+		{
+			if (inptr[i] == inptr[n])
+			{
+				duplicates[ptr] = inptr[n];
+				ptr++;
+			}
+			n++;
+		}
+	}
+	n = 0;
+	for (int i = 0; i < len; i++)
+	{
+		while (n < len)
+		{
+			if (duplicates[i] != inptr[n])
+			{
+				print = inptr[n];
+				n++;
+				//ptr++;
+			}
+			n++;
+		}
+		n = 0;
+	}
+	//printf("%s", duplicates);
+	printf("\n%c", print);
 	getchar();
 	getchar();
 	return 0;
