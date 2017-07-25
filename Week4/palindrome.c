@@ -1,3 +1,7 @@
+/*	All code originally written by Alex Mononen
+	CS50
+	some day during suummer 2017...
+*/
 #include <stdio.h>
 #define BUFF_SIZE 512
 
