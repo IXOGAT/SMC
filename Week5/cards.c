@@ -1,6 +1,6 @@
 /*  All code originally written by Alex Mononen
-CS 50
-6/27/2017
+	CS 50
+	6/27/2017
 */
 #include <stdio.h>
 #include <stdlib.h>

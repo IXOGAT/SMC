@@ -17,4 +17,13 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="files.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="passwords.txt" />
+    <Text Include="usernames.txt" />
+  </ItemGroup>
 </Project>
